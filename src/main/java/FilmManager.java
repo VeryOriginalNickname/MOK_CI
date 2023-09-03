@@ -1,15 +1,18 @@
 public class FilmManager {
 
-    String[] films = {"Гадкий я", "Тачки", "Интерстеллар", "Марсианин", "Тролли", "Шрек"};
+    String[] films = {};
 
     private int returnNumber;
+    private int input;
 
     public FilmManager() {
         returnNumber = 5;
+        input = 0;
     }
 
     public FilmManager(int neededNumber) {
         returnNumber = neededNumber;
+        input = 1;
     }
 
 
@@ -30,17 +33,19 @@ public class FilmManager {
 
     public String[] findLast() {
         int result;
-        if (returnNumber == 5) {
-            result = 5;
-        } else {
-            result = returnNumber;
+
+
+        if (input == 1) {
+            if (returnNumber > films.length) {
+                returnNumber = films.length;
+            }
         }
+        result = returnNumber;
 
         String[] reversed = new String[result];
 
         for (int i = 0; i < returnNumber; i++) {
             reversed[i] = films[films.length - 1 - i];
-
         }
         return reversed;
     }
