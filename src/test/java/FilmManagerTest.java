@@ -7,9 +7,9 @@ public class FilmManagerTest {
     public void Test1() {
         FilmManager filmManager = new FilmManager();
         filmManager.newFilm("Чужой");
-        int n = filmManager.films.length;
+        int n = filmManager.getFilms().length;
         String expected = "Чужой";
-        String actual = filmManager.films[n - 1];
+        String actual = filmManager.getFilms()[n - 1];
 
         Assertions.assertEquals(expected, actual);
     }
@@ -21,10 +21,8 @@ public class FilmManagerTest {
         filmManager.newFilm("Свой");
         filmManager.findAll();
         String[] expected = {"Чужой", "Свой"};
-        String[] actual = filmManager.films;
-
+        String[] actual = filmManager.getFilms();
         Assertions.assertArrayEquals(expected, actual);
-
     }
 
 
